@@ -1,0 +1,12 @@
+version: '3'
+volumes:
+  rust_dev:
+services:
+  rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.rust
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - rust_dev:/home/dev/source
