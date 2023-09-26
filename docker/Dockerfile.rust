@@ -1,4 +1,4 @@
 FROM rust:alpine3.18
 RUN apk add --no-cache git
 ENV PATH="$PATH:/usr/local/cargo/bin"
-WORKDIR /home/dev/source
+WORKDIR /root/scr
