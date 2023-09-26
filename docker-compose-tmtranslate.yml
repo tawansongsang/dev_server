@@ -1,0 +1,10 @@
+version: '3'
+services:
+  python:
+    build:
+      context: x
+      dockerfile: docker/Dockerfile.python
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - "C:/Users/younp/Projects/tm_translate:/root/scr"

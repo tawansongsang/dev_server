@@ -20,3 +20,11 @@ services:
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - vue3_dev:/root/src
+  python:
+    build:
+      context: x
+      dockerfile: docker/Dockerfile.python
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - "C:/Users/younp/Projects/tm_translate:/root/scr"
