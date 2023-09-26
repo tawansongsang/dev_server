@@ -1,6 +1,6 @@
 version: '3'
 volumes:
-  rust_dev:
+  qr_rust_dev:
   vue3_dev:
 services:
   qr_rust:
@@ -11,7 +11,7 @@ services:
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - qr_rust_dev:/root/scr
-      #- "C:/Users/younp/Projects/rust_doc/qr-backend:/root/scr/qr-backend/target/doc"
+      - "C:/Users/younp/Projects/rust_doc/qr-backend:/root/scr/qr-backend/target/doc"
   vue3:
     build:
       context: .
