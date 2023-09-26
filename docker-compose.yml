@@ -1,6 +1,8 @@
 version: '3'
 volumes:
   rust_dev:
+  qr_rust_dev:
+  vue3_dev:
 services:
   rust:
     build:
@@ -9,4 +11,29 @@ services:
     restart: on-failure
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - rust_dev:/home/dev/source
+      - rust_dev:/root/scr
+  python:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - "C:/Users/younp/Projects/tm_translate:/root/scr"
+  qr_rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.rust
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - qr_rust_dev:/root/scr
+      - "C:/Users/younp/Projects/rust_doc/qr-backend:/root/scr/qr-backend/target/doc"
+  vue3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.vue3
+    restart: on-failure
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - vue3_dev:/root/src
