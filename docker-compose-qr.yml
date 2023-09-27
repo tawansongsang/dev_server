@@ -1,7 +1,7 @@
 version: '3'
 volumes:
   qr_rust_dev:
-  vue3_dev:
+  qr_vue3_dev:
 services:
   qr_rust:
     build:
@@ -19,4 +19,4 @@ services:
     restart: on-failure
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - vue3_dev:/root/src
+      - qr_vue3_dev:/root/src
