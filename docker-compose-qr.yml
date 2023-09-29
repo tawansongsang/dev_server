@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.rust
-    restart: on-failure
+    restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - qr_rust_dev:/root/scr
@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.vue3
-    restart: on-failure
+    restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - qr_vue3_dev:/root/src

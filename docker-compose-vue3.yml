@@ -1,0 +1,12 @@
+version: '3'
+volumes:
+  vue3_dev:
+services:
+  vue3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.vue3
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - vue3_dev:/root/src

@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.rust
-    restart: on-failure
+    restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     environment:
       - DATABASE_URL=postgres://postgres:password@db_zero2_prod:5432/newsletter
@@ -17,7 +17,7 @@ services:
       - db_zero2_prod
   db_zero2_prod:
     image: postgres:16-alpine3.18
-    restart: on-failure
+    restart: unless-stopped
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -29,7 +29,7 @@ services:
       - db_zero2prod_dev:/var/lib/postgresql/data
   adminer:
     image: adminer
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       - db_zero2_prod
     ports:
