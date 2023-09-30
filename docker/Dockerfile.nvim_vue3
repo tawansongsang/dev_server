@@ -1,0 +1,20 @@
+FROM node:lts-alpine3.18
+WORKDIR /root/.config
+#RUN apk add --no-cache git
+RUN apk add --no-cache git \ 
+    neovim \
+    fd \
+    unzip \
+    curl \
+    wget \
+    tar \
+    gzip \
+    gcc \
+    musl-dev \
+    tmux \
+    wl-clipboard && \
+    git clone https://github.com/tawansongsang/nvim.git nvim && \
+    cp /root/.config/nvim/language/vue/indent.lua /root/.config/nvim/lua/tawan/indent.lua && \
+    cp /root/.config/nvim/language/vue/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua
+
+WORKDIR /root/src

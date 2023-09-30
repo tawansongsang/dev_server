@@ -1,0 +1,21 @@
+FROM rust:alpine3.18
+ENV PATH="$PATH:/usr/local/cargo/bin"
+WORKDIR /root/.config
+#RUN apk add --no-cache git musl-dev
+RUN apk add --no-cache git \ 
+    neovim \
+    fd \
+    unzip \
+    curl \
+    wget \
+    tar \
+    gzip \
+    gcc \
+    musl-dev \
+    wl-clipboard && \
+    git clone https://github.com/tawansongsang/nvim.git nvim && \
+    cp /root/.config/nvim/language/rust/indent.lua /root/.config/nvim/lua/tawan/indent.lua && \
+    cp /root/.config/nvim/language/rust/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua
+
+WORKDIR /root/src
+

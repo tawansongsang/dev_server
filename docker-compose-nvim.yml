@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nvim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nvim
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+  nvim_rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nvim_rust
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+  nvim_vue3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nvim_vue3
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]

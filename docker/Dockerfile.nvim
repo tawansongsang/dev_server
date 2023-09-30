@@ -1,0 +1,17 @@
+FROM alpine:3.18
+WORKDIR /root/.config
+RUN apk add --no-cache git \ 
+    neovim \
+    fd \
+    unzip \
+    curl \
+    wget \
+    tar \
+    gzip \
+    gcc \
+    musl-dev \
+    wl-clipboard && \
+    git clone https://github.com/tawansongsang/nvim.git nvim
+
+WORKDIR /root/src
+
