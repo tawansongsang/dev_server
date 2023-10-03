@@ -1,0 +1,17 @@
+version: '3'
+volumes:
+  sqlserver_dev:
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    # restart: unless-stopped
+    # command: [ "tail", "-f", "/dev/null" ]
+    environment:
+      # - MSSQL_PID=Evaluation
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=7eY05LDG£N
+    volumes:
+      - sqlserver_dev:/var/opt/mssql
+      - C:\Users\younp\Projects\learn_webapi_csharp\20231003\datatest:/tmp
+    ports:
+      - 1433:1433
