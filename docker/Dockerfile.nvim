@@ -1,5 +1,7 @@
 FROM alpine:3.18
 WORKDIR /root/.config
+ENV LANG=en_IN.UTF-8
+ENV LANG=en_IN.UTF-8
 RUN apk add --no-cache git \ 
     neovim \
     fd \
@@ -10,8 +12,11 @@ RUN apk add --no-cache git \
     gzip \
     gcc \
     musl-dev \
+    tmux \
     wl-clipboard && \
-    git clone https://github.com/tawansongsang/nvim.git nvim
+    git clone https://github.com/tawansongsang/nvim.git nvim && \
+    git clone https://github.com/tawansongsang/tmux.git ~/tmux && \
+    cp ~/tmux/tmux.conf ~/.tmux.conf
 
 WORKDIR /root/src
 
