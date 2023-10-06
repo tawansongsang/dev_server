@@ -6,14 +6,15 @@ services:
   rust_zero2_prod:
     build:
       context: .
-      dockerfile: docker/Dockerfile.rust
-      # dockerfile: docker/Dockerfile.nvim_rust
+      # dockerfile: docker/Dockerfile.rust
+      dockerfile: docker/Dockerfile.nvim_rust
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
+    # command: [ "tmux", "new", "-s" , "root" , "'exec /bin/sh'"]
     environment:
       - DATABASE_URL=postgres://postgres:password@db_zero2_prod:5432/newsletter
     volumes:
-      - rust_zero2_prod_dev:/root/scr
+      - rust_zero2_prod_dev:/root/src
     depends_on:
       - db_zero2_prod
   db_zero2_prod:

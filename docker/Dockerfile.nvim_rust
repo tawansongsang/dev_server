@@ -1,5 +1,7 @@
 FROM rust:alpine3.18
-ENV PATH="$PATH:/usr/local/cargo/bin"
+#ENV PATH="$PATH:/usr/local/cargo/bin"
+ENV LANG=en_IN.UTF-8
+ENV LANG=en_IN.UTF-8
 WORKDIR /root/.config
 #RUN apk add --no-cache git musl-dev
 RUN apk add --no-cache git \ 
@@ -12,10 +14,15 @@ RUN apk add --no-cache git \
     gzip \
     gcc \
     musl-dev \
+    tmux \
     wl-clipboard && \
     git clone https://github.com/tawansongsang/nvim.git nvim && \
     cp /root/.config/nvim/language/rust/indent.lua /root/.config/nvim/lua/tawan/indent.lua && \
-    cp /root/.config/nvim/language/rust/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua
+    cp /root/.config/nvim/language/rust/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua && \
+    git clone https://github.com/tawansongsang/tmux.git tmux && \
+    mv /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
+
+COPY scripts/30addenv.sh /etc/profile.d/30addenv.sh
 
 WORKDIR /root/src
 
