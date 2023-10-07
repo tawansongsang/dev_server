@@ -14,15 +14,18 @@ RUN apk add --no-cache git \
     gzip \
     gcc \
     musl-dev \
+    openssh-client-common \
+    openssh-client-default \
     tmux \
-    wl-clipboard && \
-    git clone https://github.com/tawansongsang/nvim.git nvim && \
+    wl-clipboard
+
+RUN git clone https://github.com/tawansongsang/nvim.git nvim && \
     cp /root/.config/nvim/language/rust/indent.lua /root/.config/nvim/lua/tawan/indent.lua && \
     cp /root/.config/nvim/language/rust/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua && \
-    git clone https://github.com/tawansongsang/tmux.git tmux && \
-    mv /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
+    git clone https://github.com/tawansongsang/tmux.git tmux
 
 COPY scripts/30addenv.sh /etc/profile.d/30addenv.sh
+COPY ./.ssh /root/.ssh
 
 WORKDIR /root/src
 

@@ -12,9 +12,11 @@ RUN apk add --no-cache git \
     gzip \
     gcc \
     musl-dev \
+    openssh-client-common \
+    openssh-client-default \
     tmux \
-    wl-clipboard && \
-    git clone https://github.com/tawansongsang/nvim.git nvim && \
+    wl-clipboard
+RUN git clone https://github.com/tawansongsang/nvim.git nvim && \
     git clone https://github.com/tawansongsang/tmux.git tmux
 
 WORKDIR /root/src
