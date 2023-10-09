@@ -6,8 +6,8 @@ services:
   rust_zero2_prod:
     build:
       context: .
-      # dockerfile: docker/Dockerfile.rust
-      dockerfile: docker/Dockerfile.nvim_rust
+      dockerfile: docker/Dockerfile.rust
+      # dockerfile: docker/Dockerfile.nvim_rust
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     # command: [ "tmux", "new", "-s" , "root" , "'exec /bin/sh'"]
