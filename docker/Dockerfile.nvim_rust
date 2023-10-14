@@ -24,7 +24,7 @@ RUN git clone https://github.com/tawansongsang/nvim.git nvim && \
     cp /root/.config/nvim/language/rust/lsp.lua /root/.config/nvim/lua/tawan/plugins/lsp.lua && \
     git clone https://github.com/tawansongsang/tmux.git tmux
 
-COPY scripts/30addenv.sh /etc/profile.d/30addenv.sh
+COPY scripts/docker/30addenv.sh /etc/profile.d/30addenv.sh
 COPY ./.ssh /root/.ssh
 
 WORKDIR /root/src
