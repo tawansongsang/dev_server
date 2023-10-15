@@ -1,0 +1,11 @@
+volumes:
+  vue3_form_dev:
+services:
+  vue3_form_dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.form_vue3
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - vue3_form_dev:/root/src
