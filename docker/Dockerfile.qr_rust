@@ -1,0 +1,4 @@
+FROM rust:alpine3.18
+RUN apk add --no-cache git build-base openssl-dev openssl-libs-static pkgconfig
+ENV PATH="$PATH:/usr/local/cargo/bin"
+WORKDIR /root/src
