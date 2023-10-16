@@ -5,7 +5,6 @@
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
 		"ms-vscode-remote.vscode-remote-extensionpack",
-		"patbenatar.advanced-new-file",
 		"ms-azuretools.vscode-docker",
 		"pkief.material-icon-theme",
 		"vscodevim.vim",
