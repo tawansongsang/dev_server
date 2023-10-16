@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - qr_rust_dev:/root/scr
+      - qr_rust_dev:/root/src
       #- "C:/Users/younp/Projects/rust_doc/qr-backend:/root/scr/qr-backend/target/doc"
   vue3:
     build:
