@@ -11,9 +11,10 @@ services:
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     environment:
-      - MSSQL_HOST=127.0.0.1
+      - MSSQL_HOST=dev_server-qr_db-1
       - MSSQL_USERNAME=sa
       - MSSQL_PASSWORD=F5z0f7HXVtR5
+      - ESERVICE_URL=https://ipcs-core.ipthailand.go.th/api/oauth/external/userinfo
     volumes:
       - qr_rust_dev:/root/src
   qr_vue3:
