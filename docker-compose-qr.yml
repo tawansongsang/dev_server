@@ -14,6 +14,7 @@ services:
       - MSSQL_HOST=dev_server-qr_db-1
       - MSSQL_USERNAME=sa
       - MSSQL_PASSWORD=F5z0f7HXVtR5
+      - MSSQL_DBNAME=QrShortUrl
       - ESERVICE_URL=https://ipcs-core.ipthailand.go.th/api/oauth/external/userinfo
     volumes:
       - qr_rust_dev:/root/src
