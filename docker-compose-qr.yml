@@ -1,7 +1,7 @@
 version: '3'
 volumes:
   qr_rust_dev:
-  qr_vue3_dev:
+  qr_react_dev:
   qr_db_dev:
 services:
   qr_rust:
@@ -11,6 +11,7 @@ services:
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     environment:
+      - SERVER_PORT=80
       - MSSQL_HOST=dev_server-qr_db-1
       - MSSQL_USERNAME=sa
       - MSSQL_PASSWORD=F5z0f7HXVtR5
@@ -18,14 +19,14 @@ services:
       - ESERVICE_URL=https://ipcs-core.ipthailand.go.th/api/oauth/external/userinfo
     volumes:
       - qr_rust_dev:/root/src
-  qr_vue3:
+  qr_react:
     build:
       context: .
-      dockerfile: docker/Dockerfile.vue3
+      dockerfile: docker/Dockerfile.qr_react
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - qr_vue3_dev:/root/src
+      - qr_react_dev:/root/src
   qr_db:
     image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
     restart: unless-stopped
