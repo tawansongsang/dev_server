@@ -28,9 +28,9 @@ services:
     environment:
       - BACKEND_URL=http://qr_rust
       - HOSTNAME=0.0.0.0
-      - PORT=80
+      - PORT=3000
     ports:
-      - 80:80
+      - 3000:3000
     volumes:
       - qr_react_dev:/root/src
   qr_db:
