@@ -1,7 +1,6 @@
 FROM rust:alpine3.18
 #ENV PATH="$PATH:/usr/local/cargo/bin"
-ENV LANG=en_IN.UTF-8
-ENV LANG=en_IN.UTF-8
+ENV LANG=en_US.UTF-8
 WORKDIR /root/.config
 #RUN apk add --no-cache git musl-dev
 RUN apk add --no-cache git \ 

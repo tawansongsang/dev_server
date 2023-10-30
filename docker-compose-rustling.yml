@@ -1,0 +1,9 @@
+volumes:
+  rustling_dev:
+services:
+  nvim_rustling:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nvim_rust
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
