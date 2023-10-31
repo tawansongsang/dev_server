@@ -7,7 +7,6 @@
 		"ms-vscode-remote.vscode-remote-extensionpack",
 		"ms-azuretools.vscode-docker",
 		"pkief.material-icon-theme",
-		"vscodevim.vim",
 		"redhat.vscode-yaml"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
