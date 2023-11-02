@@ -1,4 +1,4 @@
 FROM rust:alpine3.18
-RUN apk add --no-cache git musl-dev
+RUN apk add --no-cache git build-base
 ENV PATH="$PATH:/usr/local/cargo/bin"
 WORKDIR /root/src
