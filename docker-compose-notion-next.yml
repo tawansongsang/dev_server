@@ -1,0 +1,12 @@
+version: '3'
+volumes:
+  notion_next_dev:
+services:
+  notion_next:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.react
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - notion_next_dev:/root/src
