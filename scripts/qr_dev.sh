@@ -27,5 +27,5 @@ else
     echo "    start:";
     echo "        Starting qr docker dev server.";
     echo "    stop:";
-    echo "        Stopping rq docker dev server.";
+    echo "        Stopping qr docker dev server.";
 fi
