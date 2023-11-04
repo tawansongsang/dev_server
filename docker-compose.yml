@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.rust
-    restart: on-failure
+    restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - C:\Users\younp\Projects\dev_server\tmp:/root/tmp
+      - C:\Users\younp\Projects\dev_server\tmp:/root/mnt
