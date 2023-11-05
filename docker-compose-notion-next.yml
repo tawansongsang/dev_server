@@ -15,14 +15,15 @@ services:
   notion_rust:
     build:
       context: .
-      dockerfile: docker/Dockerfile.rust
+      dockerfile: docker/Dockerfile.notion_rust
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     environment:
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=notion
       - POSTGRES_PASSWORD=F5z0f7HXVtR5
       - POSTGRES_DB=notion
       - POSTGRES_HOST=notion_db
+      - DATABASE_URL=postgres://notion@notion_db/notion
     volumes:
       - notion_rust_dev:/root/src
   notion_db:
