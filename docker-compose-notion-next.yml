@@ -1,6 +1,8 @@
 version: '3'
 volumes:
   notion_next_dev:
+  notion_rust_dev:
+  notion_db_dev:
 services:
   notion_next:
     build:
@@ -10,3 +12,31 @@ services:
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - notion_next_dev:/root/src
+  notion_rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.rust
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=F5z0f7HXVtR5
+      - POSTGRES_DB=notion
+      - POSTGRES_HOST=notion_db
+    volumes:
+      - notion_rust_dev:/root/src
+  notion_db:
+    image: postgres:16-alpine3.18
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=F5z0f7HXVtR5
+      # - POSTGRES_DB=notion
+    ports:
+      - 5432:5432
+    volumes:
+      - notion_db_dev:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
