@@ -1,0 +1,11 @@
+volumes:
+  axum_rust_dev:
+services:
+  axum_rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.axum_rust
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - axum_rust_dev:/root/src
