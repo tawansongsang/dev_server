@@ -1,0 +1,9 @@
+services:
+  python:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.scikit-learn_python
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - C:\Users\younp\Projects\decisiontree\data:/root/src/data
