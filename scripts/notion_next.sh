@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 if [[ $1 = "start" ]];
 then
-    docker-compose -f ./docker-compose-notion-next.yml $1;
+    podman compose -f ./docker-compose-notion-next.yml $1;
 elif [[ $1 = "stop" ]];
 then
-    docker-compose -f ./docker-compose-notion-next.yml $1;
+    podman compose -f ./docker-compose-notion-next.yml $1;
 elif [[ $1 = "up" ]];
 then
-    docker-compose -f ./docker-compose-notion-next.yml $1 -d;
+    podman compose -f ./docker-compose-notion-next.yml $1 -d;
 elif [[ $1 = "down" ]];
 then
-    docker-compose -f ./docker-compose-notion-next.yml $1;
+    podman compose -f ./docker-compose-notion-next.yml $1;
 else
     echo "qr_dev.sh [COMMAND]";
     echo "COMMAND";
