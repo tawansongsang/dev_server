@@ -1,0 +1,34 @@
+volumes:
+  surreal_axum_rust_dev:
+  surreal_db_dev:
+services:
+  surreal_axum_rust:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.axum_rust
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - surreal_axum_rust_dev:/root/src
+  surreal_db:
+    image: surrealdb/surrealdb:1.0.0
+    restart: unless-stopped
+    environment:
+      - DB_USER=root
+      - DB_PASSWORD=root
+    entrypoint:
+      - /surreal 
+      - start 
+      - --log
+      - trace
+      - --auth
+      - --user
+      - root
+      - --pass
+      - root
+      - file:/mydata/mydatabase.db
+    ports:
+      - 8000:8000
+    volumes:
+      # - surreal_db_dev:/mydata
+      - ~/tmp/surrealdb:/mydata:z
