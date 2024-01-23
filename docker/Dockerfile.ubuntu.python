@@ -16,3 +16,5 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Bangkok apt-get update \
         git python3\
     && rm -rf /vat/lib/apt/lists/* \
     && localedef -i th_TH -c -f UTF-8 -A /usr/share/locale/locale.alias th_TH.UTF-8
+
+WORKDIR /root/src
