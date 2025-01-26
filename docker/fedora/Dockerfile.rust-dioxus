@@ -1,3 +1,4 @@
 FROM fedora-rust-dev:latest
 
 RUN cargo binstall dioxus-cli
+RUN dnf in nodejs npm -y
