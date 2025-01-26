@@ -26,14 +26,13 @@ docker build . -t fedora-dioxus-dev -f ./docker/fedora/Dockerfile.rust-dioxus
 ```
 
 ### run distrobox
-error: connection refused
 
 for rust development
 ``` bash
-distrobox create --image fedora-rust-dev:latest --name fedora-rust-dev --home ~/distrobox/fedora-rust-dev
+dDBX_CONTAINER_ALWAYS_PULL=0 distrobox create --image fedora-rust-dev:latest --name fedora-rust-dev --home ~/distrobox/fedora-rust-dev
 ```
 
 for dioxus development
 ``` bash
-distrobox create --image fedora-dioxus-dev:latest --name fedora-dioxus-dev --home ~/distrobox/fedora-dioxus-dev
+DBX_CONTAINER_ALWAYS_PULL=0 distrobox create --image fedora-dioxus-dev:latest --name fedora-dioxus-dev --home ~/distrobox/fedora-dioxus-dev
 ```
