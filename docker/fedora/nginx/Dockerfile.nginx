@@ -1,0 +1,15 @@
+FROM fedora:latest
+
+RUN dnf update -y \
+    && dnf in nginx\
+    -y
+
+RUN rm -rf /usr/share/nginx/html
+
+COPY ./src/public /usr/share/nginx/html
+COPY ./nginx/base.conf /etc/nginx/conf.d/
+COPY ./nginx/spa.conf /etc/nginx/default.d/
+
+EXPOSE 80
+
+ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]
