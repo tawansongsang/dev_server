@@ -1,3 +1,4 @@
+# for dev
 FROM fedora-rust-dev:latest
 
 RUN cargo binstall dioxus-cli
