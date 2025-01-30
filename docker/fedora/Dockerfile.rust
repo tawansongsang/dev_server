@@ -8,7 +8,8 @@ RUN dnf update -y \
     -y
 
 # Setup variable environment
-ENV RUSTUP_HOME=/usr/local/rustup \
+ENV TZ=Asia/Bangkok \
+    RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
 
