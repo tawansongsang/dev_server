@@ -30,9 +30,11 @@ docker build . -t fedora-dioxus-dev -f ./docker/fedora/Dockerfile.rust-dioxus
 for rust development
 ``` bash
 dDBX_CONTAINER_ALWAYS_PULL=0 distrobox create --image fedora-rust-dev:latest --name fedora-rust-dev --home ~/distrobox/fedora-rust-dev
+distrobox enter fedora-rust-dev
 ```
 
 for dioxus development
 ``` bash
 DBX_CONTAINER_ALWAYS_PULL=0 distrobox create --image fedora-dioxus-dev:latest --name fedora-dioxus-dev --home ~/distrobox/fedora-dioxus-dev
+distrobox enter fedora-dioxus-dev
 ```
