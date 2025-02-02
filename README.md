@@ -11,7 +11,7 @@ podman build -t fedora-rust-dev -f ./docker/fedora/Dockerfile.rust
 
 for dioxus development
 ``` bash
-podman build -t fedora-dioxus-dev -f ./docker/fedora/Dockerfile.rust-dioxus
+podman build -t fedora-dioxus-dev -f ./docker/fedora/dioxus/Dockerfile.rust-dioxus
 ```
 ### create docker image with docker
 
@@ -22,7 +22,7 @@ docker build . -t fedora-rust-dev -f docker/fedora/Dockerfile.rust
 
 for dioxus development
 ``` bash
-docker build . -t fedora-dioxus-dev -f ./docker/fedora/Dockerfile.rust-dioxus
+docker build . -t fedora-dioxus-dev -f ./docker/fedora/dioxus/Dockerfile.rust-dioxus
 ```
 
 ### run distrobox

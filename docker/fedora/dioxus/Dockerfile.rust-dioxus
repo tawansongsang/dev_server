@@ -1,5 +1,5 @@
 # for dev
 FROM fedora-rust-dev:latest
 
-RUN cargo binstall dioxus-cli
+RUN cargo binstall dioxus-cli zellij
 RUN dnf in nodejs npm -y
