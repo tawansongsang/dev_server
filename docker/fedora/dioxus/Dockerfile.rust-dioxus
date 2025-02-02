@@ -3,3 +3,4 @@ FROM fedora-rust-dev:latest
 
 RUN cargo binstall dioxus-cli zellij
 RUN dnf in nodejs npm -y
+RUN npm install -g @tailwindcss/language-server
