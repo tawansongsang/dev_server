@@ -3,6 +3,7 @@ FROM fedora:latest
 # install base packages for rust developer
 RUN dnf update -y \
     && dnf in git ripgrep bat\
+    helix \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
     -y
