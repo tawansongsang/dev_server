@@ -2,7 +2,7 @@ FROM fedora:latest
 
 # install base packages for rust developer
 RUN dnf update -y \
-    && dnf in git ripgrep bat \
+    && dnf in git ripgrep bat tmux \
     helix wl-clipboard \
     lldb rust-lldb \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
