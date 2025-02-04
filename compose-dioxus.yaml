@@ -1,0 +1,12 @@
+volumes:
+  dioxus_rust_dev:
+services:
+  dioxus_rust:
+    build:
+      context: .
+      dockerfile: docker/fedora/dioxus/Dockerfile.dev
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - dioxus_rust_dev:/root/workspace
+      - ~/.ssh:/root/.ssh

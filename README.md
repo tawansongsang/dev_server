@@ -2,6 +2,22 @@
 
 ## Using Base Docker Image
 
+### using docker compose
+create and run container
+```bash
+docker compose -f compose-dioxus.yaml up -d
+```
+
+stop and remove
+```bash
+docker compose -f compose-dioxus.yaml down
+```
+
+list container
+``` bash
+docker compose ls
+```
+
 ### create docker image with podman
 
 for rust development
