@@ -10,3 +10,4 @@ services:
     volumes:
       - dioxus_rust_dev:/root/workspace
       - ~/.ssh:/root/.ssh
+      - ./.tmux.conf:/root/.tmux.conf
