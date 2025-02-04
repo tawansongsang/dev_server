@@ -1,0 +1,11 @@
+volumes:
+  python_dev:
+services:
+  python:
+    build:
+      context: .
+      dockerfile: docker/fedora/Dockerfile.python
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
+    volumes:
+      - python_dev:/root/workspace
