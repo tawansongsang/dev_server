@@ -1,10 +1,10 @@
 volumes:
   python_dev:
 services:
-  python:
+  jupyter:
     build:
       context: .
-      dockerfile: docker/fedora/python/Dockerfile.python
+      dockerfile: docker/fedora/python/Dockerfile.python-jupyter
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
