@@ -1,10 +1,10 @@
 volumes:
   python_dev:
 services:
-  python_jupyter:
+  ptyhon_aiml:
     build:
       context: .
-      dockerfile: docker/fedora/python/Dockerfile.python-jupyter
+      dockerfile: docker/fedora/python/Dockerfile.python-aiml
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:

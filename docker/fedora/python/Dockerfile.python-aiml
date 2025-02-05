@@ -4,12 +4,16 @@ FROM fedora:latest
 RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \ 
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 
-# install base packages for jupyter developer
+# install base packages for ai and ml python developer
 RUN dnf update -y \
     && dnf in git ripgrep tmux \
     python3 \
     python3-ipykernel \
+    python3-scikit-learn \
     -y
+
+# install packages ai and ml via pip
+RUN pip install streamlit
 
 # Setup variable environment
 ENV TZ=Asia/Bangkok
