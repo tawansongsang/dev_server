@@ -1,4 +1,7 @@
 FROM fedora:latest as base
+# add parallel downloads
+RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \ 
+    && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 RUN dnf update -y
 ENV TZ="Asia/Bangkok"
 
