@@ -1,5 +1,5 @@
 volumes:
-  dioxus_rust_dev:
+  source_code:
 services:
   dioxus_rust:
     build:
@@ -8,6 +8,6 @@ services:
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - dioxus_rust_dev:/root/workspace
+      - source_code:/root/workspace
       - ~/.ssh:/root/.ssh
       - ./.tmux.conf:/root/.tmux.conf

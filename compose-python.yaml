@@ -1,5 +1,5 @@
 volumes:
-  python_dev:
+  source_code:
 services:
   python:
     build:
@@ -8,4 +8,5 @@ services:
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
-      - python_dev:/root/workspace
+      - source_code:/root/workspace
+      # - ./tmp:/root/workspace/tmp
