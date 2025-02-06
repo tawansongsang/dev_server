@@ -1,7 +1,7 @@
 volumes:
   source_code:
 services:
-  ptyhon_aiml:
+  python_aiml:
     build:
       context: .
       dockerfile: docker/fedora/python/Dockerfile.python-aiml
