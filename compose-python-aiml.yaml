@@ -9,6 +9,6 @@ services:
     command: [ "tail", "-f", "/dev/null" ]
     volumes:
       - source_code:/root/workspace
-      # - ./tmp:/root/workspace/tmp
+      - ./tmp:/root/workspace/tmp
       - ~/.ssh:/root/.ssh
       - ./.tmux.conf:/root/.tmux.conf
