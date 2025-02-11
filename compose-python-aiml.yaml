@@ -7,6 +7,12 @@ services:
       dockerfile: docker/fedora/python/Dockerfile.python-aiml
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
     volumes:
       - source_code:/root/workspace
       - ./tmp:/root/workspace/tmp
