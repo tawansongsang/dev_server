@@ -6,7 +6,7 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
 
 # install base packages for ai and ml python developer
 RUN dnf update -y \
-    && dnf in git ripgrep tmux \
+    && dnf in git ripgrep tmux fish \
     python3 uv \
     python3-ipykernel \
     python3-scikit-learn \

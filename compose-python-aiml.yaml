@@ -15,6 +15,6 @@ services:
                 - gpu
     volumes:
       - source_code:/root/workspace
-      - ./tmp:/root/workspace/tmp
-      - ~/.ssh:/root/.ssh
-      - ./.tmux.conf:/root/.tmux.conf
+      - ./tmp:/root/workspace/tmp:z
+      - ~/.ssh:/root/.ssh:z
+      - ./.tmux.conf:/root/.tmux.conf:z

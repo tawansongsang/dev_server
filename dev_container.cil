@@ -1,0 +1,4 @@
+(block dev_container
+    (blockinherit container)
+    (allow process process ( capability ( chown dac_override fowner fsetid kill net_bind_service setfcap setgid setpcap setuid sys_chroot ))) 
+
