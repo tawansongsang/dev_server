@@ -1,5 +1,6 @@
 volumes:
   source_code:
+  ollama:
 services:
   python_aiml:
     build:
@@ -7,14 +8,30 @@ services:
       dockerfile: docker/fedora/python/Dockerfile.python-aiml
     restart: unless-stopped
     command: [ "tail", "-f", "/dev/null" ]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities:
+    #             - gpu
+    volumes:
+      - source_code:/root/workspace
+      - ./tmp:/root/workspace/tmp:z
+      - ~/.ssh:/root/.ssh:z
+      - ./.tmux.conf:/root/.tmux.conf:z
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama:/root/.ollama
     deploy:
       resources:
         reservations:
           devices:
             - capabilities:
                 - gpu
-    volumes:
-      - source_code:/root/workspace
-      - ./tmp:/root/workspace/tmp:z
-      - ~/.ssh:/root/.ssh:z
-      - ./.tmux.conf:/root/.tmux.conf:z
+networks:
+  backend:

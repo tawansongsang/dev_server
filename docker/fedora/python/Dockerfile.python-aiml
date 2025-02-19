@@ -22,7 +22,8 @@ RUN dnf update -y \
 # packages tensorflow support python 3.11
 # then use uv to install uv init -p 3.11 && uv add pandas numpy scipy scikit-learn 
 ## gensim ipykernel tensorflow tensorboard streamlit matplotlib scikeras
-RUN dnf in python3.11 -y 
+RUN dnf in python3.11 -y  \
+    && dnf group install c-development -y 
 
 # Setup variable environment
 ENV TZ=Asia/Bangkok \
