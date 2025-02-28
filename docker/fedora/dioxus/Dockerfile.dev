@@ -4,7 +4,7 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 # install base packages for rust developer
 RUN dnf update -y \
-    && dnf in git ripgrep bat tmux \
+    && dnf in git ripgrep bat tmux nginx \
     helix wl-clipboard \
     lldb rust-lldb \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
@@ -28,3 +28,5 @@ RUN dnf in nodejs npm -y
 RUN npm install -g @tailwindcss/language-server vscode-langservers-extracted
 
 WORKDIR /root/workspace
+
+ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]

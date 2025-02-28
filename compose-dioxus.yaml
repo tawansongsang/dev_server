@@ -11,3 +11,4 @@ services:
       - source_code:/root/workspace
       - ~/.ssh:/root/.ssh
       - ./.tmux.conf:/root/.tmux.conf
+      - ~/.config/helix:/root/.config/helix

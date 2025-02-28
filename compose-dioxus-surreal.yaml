@@ -1,0 +1,37 @@
+volumes:
+  source_code:
+  db:
+services:
+  dioxus_rust:
+    build:
+      context: .
+      dockerfile: docker/fedora/dioxus/Dockerfile.dev
+    restart: unless-stopped
+    # command: [ "tail", "-f", "/dev/null" ]
+    # entrypoint: ["tail", "-f", "/dev/null"]
+    volumes:
+      - source_code:/root/workspace
+      - ~/.ssh:/root/.ssh:z
+      - ./.tmux.conf:/root/.tmux.conf:z
+      - ~/.config/helix:/root/.config/helix:z
+  surrealdb:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: docker/fedora/surreal/Dockerfile.surreal
+    entrypoint: 
+      - surreal 
+      - start 
+      - --user
+      - $DB_USER
+      - --pass
+      - $DB_PASSWORD
+      - --bind
+      - 0.0.0.0:8000
+      - rocksdb:/data/mydatabase.db
+    ports:
+      - 8000:8000
+    volumes:
+      - db:/data
+

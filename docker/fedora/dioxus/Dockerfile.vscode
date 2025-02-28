@@ -4,7 +4,7 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 # install base packages for rust developer
 RUN dnf update -y \
-    && dnf in git ripgrep bat \
+    && dnf in git ripgrep bat nginx\
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
     -y
@@ -22,3 +22,5 @@ FROM rust as final
 
 RUN cargo binstall dioxus-cli
 RUN dnf in nodejs npm -y
+
+ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]
