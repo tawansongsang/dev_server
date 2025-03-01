@@ -14,6 +14,7 @@ services:
       - ~/.ssh:/root/.ssh:z
       - ./.tmux.conf:/root/.tmux.conf:z
       - ~/.config/helix:/root/.config/helix:z
+      - ./tmp:/root/tmp:z
   surrealdb:
     env_file:
       - .env

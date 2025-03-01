@@ -12,3 +12,5 @@ services:
       - ~/.ssh:/root/.ssh
       - ./.tmux.conf:/root/.tmux.conf
       - ~/.config/helix:/root/.config/helix
+      - ./tmp:/root/tmp:z
+
