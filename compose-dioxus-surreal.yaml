@@ -30,9 +30,9 @@ services:
       - $DB_PASSWORD
       - --bind
       - 0.0.0.0:8000
-      - rocksdb:/data/mydatabase.db
+      - rocksdb:/var/lib/surreal/mydatabase.db
     ports:
       - 8000:8000
     volumes:
-      - db:/data
+      - db:/var/lib/surreal
 
