@@ -25,7 +25,7 @@ FROM rust as dev
 
 RUN cargo binstall dioxus-cli
 RUN dnf in nodejs npm -y
-RUN npm install -g @tailwindcss/language-server vscode-langservers-extracted
+RUN npm install -g tailwindcss @tailwindcss/cli @tailwindcss/language-server vscode-langservers-extracted
 
 WORKDIR /root/workspace
 

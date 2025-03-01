@@ -22,5 +22,6 @@ FROM rust as final
 
 RUN cargo binstall dioxus-cli
 RUN dnf in nodejs npm -y
+RUN npm install -g tailwindcss @tailwindcss/cli 
 
 ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]
