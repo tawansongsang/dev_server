@@ -21,6 +21,7 @@ services:
     build:
       context: .
       dockerfile: docker/fedora/surreal/Dockerfile.surreal
+    restart: unless-stopped
     entrypoint: 
       - surreal 
       - start 
