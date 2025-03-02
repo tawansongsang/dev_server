@@ -4,9 +4,11 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 # install base packages for rust developer
 RUN dnf update -y \
-    && dnf in git ripgrep bat tmux nginx \
+    && dnf in git ripgrep bat tmux nginx glibc-langpack-th glibc-langpack-en \
     helix wl-clipboard \
     lldb rust-lldb \
+    # openssl-devel javascriptcoregtk4.1-devel rust-glib-sys-devel libsoup3-dvel \
+    # rust-atk-devel \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
     -y
@@ -15,7 +17,9 @@ RUN dnf update -y \
 ENV TZ=Asia/Bangkok \
     RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
-    PATH=/usr/local/cargo/bin:$PATH
+    PATH=/usr/local/cargo/bin:$PATH \
+    LANG=th_TH.utf8 \
+    LC_ALL=th_TH.utf8
 
 # install cargo-binstall
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash

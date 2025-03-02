@@ -7,14 +7,16 @@ ENV TZ="Asia/Bangkok"
 
 
 FROM base as chef
-RUN dnf in git \
-    cargo rustup\
+RUN dnf in git glibc-langpack-th glibc-langpack-en \
+    cargo rustup \
     rust-src rust-std-static-wasm32-unknown-unknown \
     -y
 # Setup variable environment
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
-    PATH=/usr/local/cargo/bin:$PATH
+    PATH=/usr/local/cargo/bin:$PATH \
+    LANG=th_TH.utf8 \
+    LC_ALL=th_TH.utf8
 # install cargo-chef
 RUN cargo install cargo-chef
 # install cargo-binstall
