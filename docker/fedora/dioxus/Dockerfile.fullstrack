@@ -40,14 +40,9 @@ RUN dx bundle --platform web
 
 
 FROM base as runtime
-RUN dnf in nginx\
-    -y
-RUN rm -rf /usr/share/nginx/html
-COPY --from=builder /app/target/dx/[project_name]/release/web/public /usr/share/nginx/html
-# COPY ./target/dx/[project_name]/release/web/public /usr/share/nginx/html
-COPY ./nginx/base.conf /etc/nginx/conf.d/
-COPY ./nginx/spa.conf /etc/nginx/default.d/
+WORKDIR /app
+COPY --from=builder /app/target/dx/form-training/release/web /app/web
 
-EXPOSE 80
+EXPOSE 8080
 
-ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]
+ENTRYPOINT [ "/app/web/server" ]

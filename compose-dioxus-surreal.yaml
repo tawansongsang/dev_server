@@ -9,6 +9,11 @@ services:
     restart: unless-stopped
     # command: [ "tail", "-f", "/dev/null" ]
     # entrypoint: ["tail", "-f", "/dev/null"]
+    environment:
+      - DB_HOST=surrealdb
+      - DB_PORT=8000
+      - DB_NAMESPACE=patent
+      - DB_DBNAME=form_training
     volumes:
       - source_code:/root/workspace
       - ~/.ssh:/root/.ssh:z
