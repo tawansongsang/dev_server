@@ -1,4 +1,4 @@
-FROM fedora:latest as rust
+FROM fedora:latest AS rust
 # add parallel downloads
 RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \ 
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
@@ -22,7 +22,7 @@ ENV TZ=Asia/Bangkok \
 # install cargo-binstall
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 
-FROM rust as final
+FROM rust AS final
 
 RUN cargo binstall dioxus-cli
 RUN dnf in nodejs npm -y

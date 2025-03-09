@@ -1,4 +1,4 @@
-FROM fedora:latest as base
+FROM fedora:latest AS base
 # add parallel downloads
 RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \ 
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
@@ -8,7 +8,7 @@ ENV TZ="Asia/Bangkok" \
     LC_ALL=th_TH.utf8
 
 
-FROM base as chef
+FROM base AS chef
 RUN dnf in git \
     cargo rustup \
     rust-src rust-std-static-wasm32-unknown-unknown \
@@ -39,7 +39,7 @@ COPY . .
 RUN dx bundle --platform web
 
 
-FROM base as runtime
+FROM base AS runtime
 RUN dnf in nginx\
     -y
 RUN rm -rf /usr/share/nginx/html
