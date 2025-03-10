@@ -2,7 +2,7 @@ FROM fedora:latest AS base
 # add parallel downloads
 RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \ 
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
-RUN dnf update -y && dnf in glibc-langpack-th glibc-langpack-en 
+RUN dnf update -y && dnf in glibc-langpack-th glibc-langpack-en -y
 ENV TZ="Asia/Bangkok" \
     LANG=th_TH.utf8 \
     LC_ALL=th_TH.utf8
