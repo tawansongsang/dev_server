@@ -12,8 +12,10 @@ services:
     environment:
       - DB_HOST=surrealdb
       - DB_PORT=8000
-      - DB_NAMESPACE=patent
-      - DB_DBNAME=form_training
+      - DB_NAMESPACE=$DB_NAMESPACE
+      - DB_DBNAME=$DB_DBNAME
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
     volumes:
       - source_code:/root/workspace
       - ~/.ssh:/root/.ssh:z
