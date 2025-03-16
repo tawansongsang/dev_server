@@ -1,6 +1,7 @@
 volumes:
   source_code:
   ollama:
+  mysql:
 services:
   python_aiml:
     build:
@@ -33,5 +34,14 @@ services:
           devices:
             - capabilities:
                 - gpu
+  mysql:
+    env_file:
+      - .env
+    image: mysql
+    restart: unless-stopped
+    ports: 
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
 networks:
   backend:
