@@ -25,6 +25,9 @@ RUN dnf update -y \
 RUN dnf in python3.11 -y  \
     && dnf group install c-development -y 
 
+# for using cassio python packages
+RUN dnf in libev libev-devel -y
+
 # Setup variable environment
 ENV TZ=Asia/Bangkok \
     UV_LINK_MODE=copy
