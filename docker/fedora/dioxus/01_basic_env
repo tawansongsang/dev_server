@@ -1,0 +1,6 @@
+export TZ=Asia/Bangkok
+export RUSTUP_HOME=/usr/local/rustup
+export CARGO_HOME=/usr/local/cargo
+export PATH=/usr/local/cargo/bin:/root/.cargo/bin:$PATH
+export LANG=th_TH.utf8
+export LC_ALL=th_TH.utf8

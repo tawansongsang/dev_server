@@ -18,10 +18,10 @@ services:
       - DB_PASSWORD=$DB_PASSWORD
     volumes:
       - source_code:/root/workspace
-      - ~/.ssh:/root/.ssh:z
-      - ./.tmux.conf:/root/.tmux.conf:z
-      - ~/.config/helix:/root/.config/helix:z
-      - ./tmp:/root/tmp:z
+      # - ~/.ssh:/root/.ssh:z
+      # - ./.tmux.conf:/root/.tmux.conf:z
+      # - ~/.config/helix:/root/.config/helix:z
+      # - ./tmp:/root/tmp:z
   surrealdb:
     env_file:
       - .env
