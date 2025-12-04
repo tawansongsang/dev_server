@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     # command: [ "tail", "-f", "/dev/null" ]
     # entrypoint: ["tail", "-f", "/dev/null"]
+    env_file:
+      - .env
     environment:
       - DB_HOST=surrealdb
       - DB_PORT=8000
@@ -25,22 +27,21 @@ services:
   surrealdb:
     env_file:
       - .env
-    build:
-      context: .
-      dockerfile: docker/fedora/surreal/Dockerfile.surreal
+    image: surrealdb/surrealdb:latest
     restart: unless-stopped
+    user: "0:0"
     entrypoint: 
-      - surreal 
+      - /surreal 
       - start 
       - --user
       - $DB_USER
       - --pass
       - $DB_PASSWORD
-      - --bind
-      - 0.0.0.0:8000
-      - rocksdb:/var/lib/surreal/mydatabase.db
+      # - --bind
+      # - 0.0.0.0:8000
+      - rocksdb:/data/surreal/surreal.db
     ports:
       - 8000:8000
     volumes:
-      - db:/var/lib/surreal
+      - db:/data/surreal
 
