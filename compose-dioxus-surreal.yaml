@@ -12,12 +12,12 @@ services:
     env_file:
       - .env
     environment:
-      - DB_HOST=surrealdb
-      - DB_PORT=8000
-      - DB_NAMESPACE=$DB_NAMESPACE
-      - DB_DBNAME=$DB_DBNAME
-      - DB_USER=$DB_USER
-      - DB_PASSWORD=$DB_PASSWORD
+      - SURREAL_HOST=surrealdb
+      - SURREAL_PORT=8000
+      - SURREAL_NAMESPACE=$SURREAL_NAMESPACE
+      - SURREAL_DBNAME=$SURREAL_DBNAME
+      - SURREAL_USERNAME=$SURREAL_USERNAME
+      - SURREAL_PASSWORD=$SURREAL_PASSWORD
     volumes:
       - source_code:/root/workspace
       # - ~/.ssh:/root/.ssh:z
@@ -34,9 +34,9 @@ services:
       - /surreal 
       - start 
       - --user
-      - $DB_USER
+      - $SURREAL_USERNAME
       - --pass
-      - $DB_PASSWORD
+      - $SURREAL_PASSWORD
       # - --bind
       # - 0.0.0.0:8000
       - rocksdb:/data/surreal/surreal.db

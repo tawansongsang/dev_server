@@ -12,15 +12,20 @@ services:
     env_file:
       - .env
     environment:
-      - DB_HOST=surrealdb
-      - DB_PORT=8000
-      - DB_NAMESPACE=$DB_NAMESPACE
-      - DB_DBNAME=$DB_DBNAME
-      - DB_USER=$DB_USER
-      - DB_PASSWORD=$DB_PASSWORD
+      - SURREAL_HOST=surrealdb
+      - SURREAL_PORT=8000
+      - SURREAL_NAMESPACE=$SURREAL_NAMESPACE
+      - SURREAL_DBNAME=$SURREAL_DBNAME
+      - SURREAL_USERNAME=$SURREAL_USERNAME
+      - SURREAL_PASSWORD=$SURREAL_PASSWORD
+      - MSSQL_HOST=sqlserverdb
+      - MSSQL_PORT=1433
+      - MSSQL_DBNAME=$MSSQL_DBNAME
+      - MSSQL_USERNAME=$MSSQL_DBNAME
+      - MSSQL_PASSWORD=$MSSQL_DBNAME
     volumes:
       - source_code:/root/workspace
-      # - ~/.ssh:/root/.ssh:z
+      - ~/.ssh:/root/tmp
       # - ./.tmux.conf:/root/.tmux.conf:z
       # - ~/.config/helix:/root/.config/helix:z
       # - ./tmp:/root/tmp:z
@@ -34,9 +39,9 @@ services:
       - /surreal 
       - start 
       - --user
-      - $DB_USER
+      - $SURREAL_USERNAME
       - --pass
-      - $DB_PASSWORD
+      - $SURREAL_PASSWORD
       # - --bind
       # - 0.0.0.0:8000
       - rocksdb:/data/surreal/surreal.db
@@ -48,8 +53,9 @@ services:
     env_file:
       - .env
     image: mcr.microsoft.com/mssql/server:2022-latest
+    user: "0:0"
     restart: unless-stopped
     ports:
       - 1433:1433
     volumes:
-      - db:/data/sqlserver
+      - db:/var/opt/mssql

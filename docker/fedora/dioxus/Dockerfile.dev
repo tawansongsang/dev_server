@@ -12,7 +12,8 @@ RUN dnf update -y \
     # helix wl-clipboard \
     # openssh-server \
     # lldb rust-lldb \
-    # openssl-devel javascriptcoregtk4.1-devel rust-glib-sys-devel libsoup3-dvel \
+    openssl-devel \
+    # javascriptcoregtk4.1-devel rust-glib-sys-devel libsoup3-dvel \
     # rust-atk-devel \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
