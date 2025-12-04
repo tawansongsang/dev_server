@@ -44,3 +44,12 @@ services:
       - 8000:8000
     volumes:
       - db:/data/surreal
+  sqlserverdb:
+    env_file:
+      - .env
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    ports:
+      - 1433:1433
+    volumes:
+      - db:/data/sqlserver
