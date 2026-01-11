@@ -1,15 +1,16 @@
 FROM quay.io/fedora/fedora-toolbox:latest
 # add parallel downloads
 RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
-	&& echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
+    && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 # install base packages for rust developer
 RUN dnf update -y \
-	&& dnf install neovim git luarocks ripgrep tmux \
-	fzf fd-find tree-sitter-cli \
-	nodejs \
-	golang \
-	kubernetes1.35-client helm \
-	jq -y
+    && dnf install neovim git luarocks ripgrep tmux butane podlet \
+    fzf fd-find tree-sitter-cli \
+    emcas \
+    nodejs \
+    golang \
+    coreos-installer \
+    ignition-validate jq -y
 
 # Setup variable environment
 # ENV TZ=Asia/Bangkok \

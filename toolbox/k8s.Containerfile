@@ -4,12 +4,17 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
     && echo "max_parallel_downloads=10" >> /etc/dnf/libdnf5.conf.d/80-user-settings.conf
 # install base packages for rust developer
 RUN dnf update -y \
-    && dnf install neovim git luarocks ripgrep tmux butane podlet \
-    	fzf fd-find tree-sitter-cli \
-	nodejs \
-	golang \
-    coreos-installer \
-    ignition-validate jq -y
+    && dnf install neovim git luarocks ripgrep tmux \
+    fzf fd-find tree-sitter-cli \
+    emacs \
+    nodejs \
+    golang \
+    kubernetes1.35-client helm \
+    jq -y
+
+RUN npm install -g yaml-language-server
+RUN npm install -g prettier
+RUN npm install -g dockerfile-language-server-nodejs
 
 # Setup variable environment
 # ENV TZ=Asia/Bangkok \

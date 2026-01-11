@@ -5,9 +5,10 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
 # install base packages for rust developer
 RUN dnf update -y \
     && dnf install neovim git luarocks ripgrep tmux\
-    	fzf fd-find tree-sitter-cli \
-	nodejs \
-	golang \
+    fzf fd-find tree-sitter-cli \
+    emacs \
+    nodejs \
+    golang \
     jq -y
 
 # Setup variable environment
@@ -21,4 +22,3 @@ RUN dnf update -y \
 # EXPOSE 22
 # ENTRYPOINT [ "/usr/sbin/sshd", "-D" ]
 #ENTRYPOINT [ "nginx" , "-g", "daemon off;" ]
-
