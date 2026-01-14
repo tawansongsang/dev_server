@@ -6,6 +6,7 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
 RUN dnf update -y \
     && dnf install neovim git luarocks ripgrep tmux \
     fzf fd-find tree-sitter-cli \
+    just \
     emacs \
     nodejs \
     golang \

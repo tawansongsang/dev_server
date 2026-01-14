@@ -7,6 +7,7 @@ RUN dnf update -y \
     && dnf group install development-tools -y \
     && dnf install neovim git luarocks ripgrep tmux\
     fzf fd-find tree-sitter-cli \
+    just \
     emacs \
     nodejs \
     golang \
