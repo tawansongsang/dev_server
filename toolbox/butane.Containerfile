@@ -7,11 +7,12 @@ RUN dnf update -y \
     && dnf install neovim git luarocks ripgrep tmux butane podlet \
     fzf fd-find tree-sitter-cli \
     just \
-    emcas \
+    emacs \
     nodejs \
     golang \
     coreos-installer \
-    ignition-validate jq -y
+    ignition-validate \
+    jq -y
 
 # Setup variable environment
 # ENV TZ=Asia/Bangkok \
