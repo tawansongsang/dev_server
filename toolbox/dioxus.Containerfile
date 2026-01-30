@@ -5,13 +5,8 @@ RUN  echo "[main]" > /etc/dnf/libdnf5.conf.d/80-user-settings.conf \
 # install base packages for rust developer
 RUN dnf update -y \
     && dnf group install development-tools -y \
-    && dnf install neovim git luarocks ripgrep tmux\
-    fzf fd-find tree-sitter-cli \
+    && dnf install git ripgrep \
     just \
-    emacs \
-    nodejs \
-    golang \
-    glibc-langpack-th glibc-langpack-en \
     openssl-devel \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
@@ -29,5 +24,6 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 # install dioxus
 #RUN cargo binstall dioxus-cli --force
 # RUN curl -sSL http://dioxus.dev/install.sh | sh
-RUN curl -sSL https://dioxus.dev/install.sh | bash
+RUN mkdir -p /usr/local/cargo/bin \
+    && curl -sSL https://dioxus.dev/install.sh | bash
 
