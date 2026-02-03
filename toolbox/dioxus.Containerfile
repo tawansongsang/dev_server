@@ -7,7 +7,6 @@ RUN dnf update -y \
     && dnf group install development-tools -y \
     && dnf install git ripgrep \
     just \
-    rest \
     openssl-devel \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
