@@ -11,6 +11,7 @@ RUN dnf update -y \
     cargo clippy rustup rust-doc rustfmt rust-analyzer \
     rust-src rust-std-static-wasm32-unknown-unknown \
     jq \
+    grpcurl \
     -y
 
 # Setup variable environment
