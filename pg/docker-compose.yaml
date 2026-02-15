@@ -1,0 +1,25 @@
+services:
+  pg:
+    image: docker.io/timescale/timescaledb-ha:pg18
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/home/postgres/pgdata
+
+  pgadmin:
+    image: docker.io/dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@domain.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - "8888:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - pg
+
+volumes:
+  pg_data:
+  pgadmin_data:
